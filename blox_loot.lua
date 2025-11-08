@@ -130,7 +130,7 @@ local Pasek_skoku = Zakladka_misc:CreateSlider({
    end,
 })
 
-local button_nieskonczony_skok = MainTab:CreateButton({
+local button_nieskonczony_skok = Zakladka_misc:CreateButton({
    Name = "Infinite Jump Toggle",
    Callback = function()
        --Toggles the infinite jump between on or off on every script run
