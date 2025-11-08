@@ -46,40 +46,12 @@ Rayfield:Notify({
 },
 })
 
-local button_nieskonczony_skok = MainTab:CreateButton({
-   Name = "Infinite Jump Toggle",
-   Callback = function()
-       --Toggles the infinite jump between on or off on every script run
-_G.infinjump = not _G.infinjump
-
-if _G.infinJumpStarted == nil then
-	--Ensures this only runs once to save resources
-	_G.infinJumpStarted = true
-	
-	--Notifies readiness
-	game.StarterGui:SetCore("SendNotification", {Title="Youtube Hub"; Text="Infinite Jump Activated!"; Duration=5;})
-
-	--The actual infinite jump
-	local plr = game:GetService('Players').LocalPlayer
-	local m = plr:GetMouse()
-	m.KeyDown:connect(function(k)
-		if _G.infinjump then
-			if k:byte() == 32 then
-			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
-			humanoid:ChangeState('Jumping')
-			wait()
-			humanoid:ChangeState('Seated')
-			end
-		end
-	end)
-end
-   end,
-})
-
 local OtherSection = MainTab:CreateSection("Other")
 
 
 local Zakladka_teleportow = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
+local Sekcja_teleportow = Zakladka_teleportow:CreateSection("Teleports") -- zakładka main w home
+
 
 local tp_button1 = Zakladka_teleportow:CreateButton({
    Name = "Wyspa 1",
@@ -103,8 +75,7 @@ local tp_button3 = Zakladka_teleportow:CreateButton({
 })
 
 local Zakladka_misc = Window:CreateTab("🎲 Misc", nil) -- Title, Image
-local Sekcja_misc = Zakladka_misc:CreateSection("TEST3") -- zakładka main w home
-local Sekcja_tp = Zakladka_teleportow:CreateSection("TEST3") -- zakładka main w home
+local Sekcja_misc = Zakladka_misc:CreateSection("Misc") -- zakładka main w home
 
 local Pasek_speeda = Zakladka_misc:CreateSlider({
    Name = "WalkSpeed Slider",
@@ -159,7 +130,37 @@ if _G.infinJumpStarted == nil then
 end
    end,
 })
+local toggle_nieskonczony_skok = MainTab:CreateToggle({
+   Name = "Nieskończony skok",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function()
+       --Toggles the infinite jump between on or off on every script run
+_G.infinjump = not _G.infinjump
 
+if _G.infinJumpStarted == nil then
+	--Ensures this only runs once to save resources
+	_G.infinJumpStarted = true
+	
+	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="Youtube Hub"; Text="Infinite Jump Activated!"; Duration=5;})
+
+	--The actual infinite jump
+	local plr = game:GetService('Players').LocalPlayer
+	local m = plr:GetMouse()
+	m.KeyDown:connect(function(k)
+		if _G.infinjump then
+			if k:byte() == 32 then
+			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+			humanoid:ChangeState('Jumping')
+			wait()
+			humanoid:ChangeState('Seated')
+			end
+		end
+	end)
+end
+   end,
+})
 
 
 --[[ Dodatkowe funkcje do rozwijania w przyszłości
