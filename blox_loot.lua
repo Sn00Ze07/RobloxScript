@@ -1,6 +1,5 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 -- loadstring(game:HttpGet('https://raw.githubusercontent.com/Sn00Ze07/RobloxScript/refs/heads/main/blox_loot.lua'))()
--- Event connections
 
 local Window = Rayfield:CreateWindow({
    Name = "Blox loot by Sn00Ze",
@@ -171,4 +170,3 @@ local Input = Zakladka_main:CreateInput({
 
 
 --]]
-
