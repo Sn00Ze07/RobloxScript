@@ -103,7 +103,8 @@ local tp_button3 = Zakladka_teleportow:CreateButton({
 })
 
 local Zakladka_misc = Window:CreateTab("🎲 Misc", nil) -- Title, Image
-local Sekcja_misc = Zakladka_misc:CreateSection("TEST2") -- zakładka main w home
+local Sekcja_misc = Zakladka_misc:CreateSection("TEST3") -- zakładka main w home
+local Sekcja_tp = Zakladka_teleportow:CreateSection("TEST3") -- zakładka main w home
 
 local Pasek_speeda = Zakladka_misc:CreateSlider({
    Name = "WalkSpeed Slider",
