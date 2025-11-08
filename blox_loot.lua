@@ -75,7 +75,7 @@ end
    end,
 })
 
-local Slider = MainTab:CreateSlider({
+local Pasek_speeda = MainTab:CreateSlider({
    Name = "WalkSpeed Slider",
    Range = {1, 350},
    Increment = 1,
@@ -87,7 +87,7 @@ local Slider = MainTab:CreateSlider({
    end,
 })
 
-local Slider = MainTab:CreateSlider({
+local Pasek_skoku = MainTab:CreateSlider({
    Name = "JumpPower Slider",
    Range = {1, 350},
    Increment = 1,
@@ -105,21 +105,21 @@ local OtherSection = MainTab:CreateSection("Other")
 local TPTab = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
 
 local tp_button1 = TPTab:CreateButton({
-   Name = "Starter Island",
+   Name = "Wyspa 1",
    Callback = function()
         --Teleport1
    end,
 })
 
 local tp_button2 = TPTab:CreateButton({
-   Name = "Pirate Island",
+   Name = "Wyspa 2,
    Callback = function()
         --Teleport2
    end,
 })
 
 local tp_button3 = TPTab:CreateButton({
-   Name = "Pineapple Paradise",
+   Name = "Wyspa 3",
    Callback = function()
         --Teleport3
    end,
