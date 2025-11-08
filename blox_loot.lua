@@ -89,7 +89,7 @@ local tp_button1 = Zakladka_teleportow:CreateButton({
 })
 
 local tp_button2 = Zakladka_teleportow:CreateButton({
-   Name = "Wyspa 2,
+   Name = "Wyspa 2",
    Callback = function()
         --Teleport2
    end,
