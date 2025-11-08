@@ -27,8 +27,8 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local MainTab = Window:CreateTab("🏠 Home", nil) -- Title, Image
-local Sekcja_main = MainTab:CreateSection("TEST1") -- zakładka main w home
+local Zakladka_main = Window:CreateTab("🏠 Home", nil) -- Title, Image
+local Sekcja_main = Zakladka_main:CreateSection("TEST1") -- zakładka main w home
 
 
 Rayfield:Notify({
@@ -46,7 +46,7 @@ Rayfield:Notify({
 },
 })
 
-local OtherSection = MainTab:CreateSection("Other")
+local OtherSection = Zakladka_main:CreateSection("Other")
 
 
 local Zakladka_teleportow = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
@@ -101,36 +101,8 @@ local Pasek_skoku = Zakladka_misc:CreateSlider({
    end,
 })
 
-local button_nieskonczony_skok = Zakladka_misc:CreateButton({
-   Name = "Infinite Jump Toggle",
-   Callback = function()
-       --Toggles the infinite jump between on or off on every script run
-_G.infinjump = not _G.infinjump
 
-if _G.infinJumpStarted == nil then
-	--Ensures this only runs once to save resources
-	_G.infinJumpStarted = true
-	
-	--Notifies readiness
-	game.StarterGui:SetCore("SendNotification", {Title="Youtube Hub"; Text="Infinite Jump Activated!"; Duration=5;})
-
-	--The actual infinite jump
-	local plr = game:GetService('Players').LocalPlayer
-	local m = plr:GetMouse()
-	m.KeyDown:connect(function(k)
-		if _G.infinjump then
-			if k:byte() == 32 then
-			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
-			humanoid:ChangeState('Jumping')
-			wait()
-			humanoid:ChangeState('Seated')
-			end
-		end
-	end)
-end
-   end,
-})
-local toggle_nieskonczony_skok = MainTab:CreateToggle({
+local toggle_nieskonczony_skok = Zakladka_misc:CreateToggle({
    Name = "Nieskończony skok",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -178,7 +150,7 @@ local Dropdown = MainTab:CreateDropdown({
 })
 
  //Przycisk zielony wlaczony-wylaczony
-local Toggle = MainTab:CreateToggle({
+local Toggle = Zakladka_main:CreateToggle({
    Name = "Auto Farm",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -188,7 +160,7 @@ local Toggle = MainTab:CreateToggle({
 })
 
 //Wpisywanie wartosci od do 1-500
-local Input = MainTab:CreateInput({
+local Input = Zakladka_main:CreateInput({
    Name = "Walkspeed",
    PlaceholderText = "1-500",
    RemoveTextAfterFocusLost = true,
