@@ -104,7 +104,7 @@ local OtherSection = MainTab:CreateSection("Other")
 local Zakladka_teleport = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
 
 local button_tp1 = Zakladka_teleport:CreateButton({
-   Name = "Wyspa 1,
+   Name = "Wyspa 1",
    Callback = function()
         --Teleport1
    end,
