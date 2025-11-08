@@ -48,6 +48,36 @@ Rayfield:Notify({
 },
 })
 
+local toggle_auto_attack = Zakladka_main:CreateToggle({
+   Name = "Auto Attack",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function()
+   _G.autoAttack = Value -- zapisujemy stan toggle globalnie
+
+        -- jeśli toggle włączony, uruchamiamy pętlę
+        if Value then
+            -- uruchamiamy tylko raz
+            if _G.autoAttackStarted == nil then
+                _G.autoAttackStarted = true
+                spawn(function()
+                    local plr = game.Players.LocalPlayer
+                    local mouse = plr:GetMouse()
+                    
+                    while _G.autoAttack do
+                        -- symulacja kliknięcia myszki
+                        mouse.Button1Down:Fire()   -- wciśnięcie
+                        wait(0.05)                  -- krótka przerwa
+                        mouse.Button1Up:Fire()     -- puszczenie
+                        
+                        wait(0.2) -- czas między kliknięciami (możesz zmienić)
+                    end
+                end)
+            end
+        end
+    end,
+})
+
 local OtherSection = Zakladka_main:CreateSection("Inne")
 
 
