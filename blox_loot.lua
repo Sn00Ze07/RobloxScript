@@ -1,6 +1,8 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 -- loadstring(game:HttpGet('https://raw.githubusercontent.com/Sn00Ze07/RobloxScript/refs/heads/main/blox_loot.lua'))()
-
+-- local url = "https://raw.githubusercontent.com/Sn00Ze07/RobloxScript/refs/heads/main/blox_loot.lua"
+-- local url = "https://raw.githubusercontent.com/Sn00Ze07/RobloxScript/main/blox_loot.lua"
+--local script = loadstring(game:HttpGet(url))()
 local Window = Rayfield:CreateWindow({
    Name = "Blox loot by Sn00Ze",
    LoadingTitle = "Blox loot by Sn00Ze",
@@ -32,7 +34,7 @@ local Sekcja_main = Zakladka_main:CreateSection("Główne") -- zakładka main w 
 
 
 Rayfield:Notify({
-   Title = "Załadowano Blox Loot 1.0",
+   Title = "Załadowano Blox Loot 1.01",
    Content = "Very cool gui",
    Duration = 5,
    Image = 13047715178,
