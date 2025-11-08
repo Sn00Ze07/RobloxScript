@@ -102,30 +102,30 @@ local Pasek_skoku = MainTab:CreateSlider({
 local OtherSection = MainTab:CreateSection("Other")
 
 
-local TPTab = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
+local Zakladka_teleportow = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
 
-local tp_button1 = TPTab:CreateButton({
+local tp_button1 = Zakladka_teleportow:CreateButton({
    Name = "Wyspa 1",
    Callback = function()
         --Teleport1
    end,
 })
 
-local tp_button2 = TPTab:CreateButton({
+local tp_button2 = Zakladka_teleportow:CreateButton({
    Name = "Wyspa 2,
    Callback = function()
         --Teleport2
    end,
 })
 
-local tp_button3 = TPTab:CreateButton({
+local tp_button3 = Zakladka_teleportow:CreateButton({
    Name = "Wyspa 3",
    Callback = function()
         --Teleport3
    end,
 })
 
-local TPTab = Window:CreateTab("🎲 Misc", nil) -- Title, Image
+local Zakladka_misc = Window:CreateTab("🎲 Misc", nil) -- Title, Image
 
 
 
