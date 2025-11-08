@@ -106,7 +106,7 @@ local Zakladka_misc = Window:CreateTab("🎲 Misc", nil) -- Title, Image
 local Sekcja_misc = Zakladka_misc:CreateSection("Różne") -- zakładka misc w home
 
 
-local Pasek_speeda = Sekcja_misc:CreateSlider({
+local Pasek_speeda = Zakladka_misc:CreateSlider({
    Name = "WalkSpeed Slider",
    Range = {1, 350},
    Increment = 1,
@@ -118,7 +118,7 @@ local Pasek_speeda = Sekcja_misc:CreateSlider({
    end,
 })
 
-local Pasek_skoku = Sekcja_misc:CreateSlider({
+local Pasek_skoku = Zakladka_misc:CreateSlider({
    Name = "JumpPower Slider",
    Range = {1, 350},
    Increment = 1,
