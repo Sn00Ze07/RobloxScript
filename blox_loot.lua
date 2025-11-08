@@ -104,21 +104,21 @@ local OtherSection = MainTab:CreateSection("Other")
 
 local TPTab = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
 
-local Button1 = TPTab:CreateButton({
+local tp_button1 = TPTab:CreateButton({
    Name = "Starter Island",
    Callback = function()
         --Teleport1
    end,
 })
 
-local Button2 = TPTab:CreateButton({
+local tp_button2 = TPTab:CreateButton({
    Name = "Pirate Island",
    Callback = function()
         --Teleport2
    end,
 })
 
-local Button3 = TPTab:CreateButton({
+local tp_button3 = TPTab:CreateButton({
    Name = "Pineapple Paradise",
    Callback = function()
         --Teleport3
