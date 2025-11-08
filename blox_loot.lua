@@ -103,6 +103,7 @@ local tp_button3 = Zakladka_teleportow:CreateButton({
 })
 
 local Zakladka_misc = Window:CreateTab("🎲 Misc", nil) -- Title, Image
+local Sekcja_main = MainTab:CreateSection("TEST2") -- zakładka main w home
 
 local Pasek_speeda = Zakladka_misc:CreateSlider({
    Name = "WalkSpeed Slider",
@@ -127,6 +128,39 @@ local Pasek_skoku = Zakladka_misc:CreateSlider({
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
    end,
 })
+
+local button_nieskonczony_skok = MainTab:CreateButton({
+   Name = "Infinite Jump Toggle",
+   Callback = function()
+       --Toggles the infinite jump between on or off on every script run
+_G.infinjump = not _G.infinjump
+
+if _G.infinJumpStarted == nil then
+	--Ensures this only runs once to save resources
+	_G.infinJumpStarted = true
+	
+	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="Youtube Hub"; Text="Infinite Jump Activated!"; Duration=5;})
+
+	--The actual infinite jump
+	local plr = game:GetService('Players').LocalPlayer
+	local m = plr:GetMouse()
+	m.KeyDown:connect(function(k)
+		if _G.infinjump then
+			if k:byte() == 32 then
+			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+			humanoid:ChangeState('Jumping')
+			wait()
+			humanoid:ChangeState('Seated')
+			end
+		end
+	end)
+end
+   end,
+})
+
+
+
 --[[ Dodatkowe funkcje do rozwijania w przyszłości
 
 //Pasek wyboru 
