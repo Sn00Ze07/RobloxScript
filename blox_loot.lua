@@ -87,7 +87,7 @@ local Pasekspeeda = MainTab:CreateSlider({
    end,
 })
 
-local Pasekskoku = MiscTab:CreateSlider({
+local Pasekskoku = MainTab:CreateSlider({
    Name = "JumpPower Slider",
    Range = {1, 350},
    Increment = 1,
