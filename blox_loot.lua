@@ -2,13 +2,13 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 -- loadstring(game:HttpGet('https://raw.githubusercontent.com/Sn00Ze07/RobloxScript/refs/heads/main/blox_loot.lua'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "🔥 Example Script Hub | Game 🔫",
-   LoadingTitle = "🔫 Gun Simulator 💥",
-   LoadingSubtitle = "by 1_F0",
+   Name = "Blox loot by Sn00Ze",
+   LoadingTitle = "Blox loot by Sn00Ze",
+   LoadingSubtitle = "by Sn00Ze",
    ConfigurationSaving = {
       Enabled = false,
       FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Example Hub"
+      FileName = "Sn00Ze Hub"
    },
    Discord = {
       Enabled = false,
@@ -17,7 +17,7 @@ local Window = Rayfield:CreateWindow({
    },
    KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
-      Title = "Key | Youtube Hub",
+      Title = "Key System | Blox loot by Sn00Ze",
       Subtitle = "Key System",
       Note = "Key In Discord Server",
       FileName = "keytest", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
@@ -75,7 +75,7 @@ end
    end,
 })
 
-local Slider = MainTab:CreateSlider({
+local Pasekspeeda = MainTab:CreateSlider({
    Name = "WalkSpeed Slider",
    Range = {1, 350},
    Increment = 1,
@@ -87,7 +87,7 @@ local Slider = MainTab:CreateSlider({
    end,
 })
 
-local Slider = MainTab:CreateSlider({
+local Pasekskoku = MiscTab:CreateSlider({
    Name = "JumpPower Slider",
    Range = {1, 350},
    Increment = 1,
@@ -98,7 +98,39 @@ local Slider = MainTab:CreateSlider({
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
    end,
 })
+local OtherSection = MainTab:CreateSection("Other")
 
+
+local Zakladka_teleport = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
+
+local button_tp1 = Zakladka_teleport:CreateButton({
+   Name = "Wyspa 1,
+   Callback = function()
+        --Teleport1
+   end,
+})
+
+local button_tp2 = Zakladka_teleport:CreateButton({
+   Name = "Wyspa 2",
+   Callback = function()
+        --Teleport2
+   end,
+})
+
+local button_tp3 = Zakladka_teleport:CreateButton({
+   Name = "Wyspa 3",
+   Callback = function()
+        --Teleport3
+   end,
+})
+
+local TPTab = Window:CreateTab("🎲 Misc", nil) -- Title, Image
+
+
+
+--[[ Dodatkowe funkcje do rozwijania w przyszłości
+
+//Pasek wyboru 
 local Dropdown = MainTab:CreateDropdown({
    Name = "Select Area",
    Options = {"Starter World","Pirate Island","Pineapple Paradise"},
@@ -110,17 +142,7 @@ local Dropdown = MainTab:CreateDropdown({
    end,
 })
 
-local Input = MainTab:CreateInput({
-   Name = "Walkspeed",
-   PlaceholderText = "1-500",
-   RemoveTextAfterFocusLost = true,
-   Callback = function(Text)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Text)
-   end,
-})
-
-local OtherSection = MainTab:CreateSection("Other")
-
+ //Przycisk zielony wlaczony-wylaczony
 local Toggle = MainTab:CreateToggle({
    Name = "Auto Farm",
    CurrentValue = false,
@@ -130,29 +152,15 @@ local Toggle = MainTab:CreateToggle({
    end,
 })
 
-local TPTab = Window:CreateTab("🏝 Teleports", nil) -- Title, Image
-
-local Button1 = TPTab:CreateButton({
-   Name = "Starter Island",
-   Callback = function()
-        --Teleport1
+//Wpisywanie wartosci od do 1-500
+local Input = MainTab:CreateInput({
+   Name = "Walkspeed",
+   PlaceholderText = "1-500",
+   RemoveTextAfterFocusLost = true,
+   Callback = function(Text)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Text)
    end,
 })
 
-local Button2 = TPTab:CreateButton({
-   Name = "Pirate Island",
-   Callback = function()
-        --Teleport2
-   end,
-})
 
-local Button3 = TPTab:CreateButton({
-   Name = "Pineapple Paradise",
-   Callback = function()
-        --Teleport3
-   end,
-})
-
-local TPTab = Window:CreateTab("🎲 Misc", nil) -- Title, Image
-
-
+--]]
