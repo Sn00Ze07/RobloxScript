@@ -28,7 +28,8 @@ local Window = Rayfield:CreateWindow({
 })
 
 local MainTab = Window:CreateTab("🏠 Home", nil) -- Title, Image
-local MainSection = MainTab:CreateSection("Main")
+local Sekcja_main = MainTab:CreateSection("TEST1") -- zakładka main w home
+
 
 Rayfield:Notify({
    Title = "You executed the script",
@@ -45,7 +46,7 @@ Rayfield:Notify({
 },
 })
 
-local Button = MainTab:CreateButton({
+local button_nieskonczony_skok = MainTab:CreateButton({
    Name = "Infinite Jump Toggle",
    Callback = function()
        --Toggles the infinite jump between on or off on every script run
@@ -75,7 +76,7 @@ end
    end,
 })
 
-local Pasek_speeda = MainTab:CreateSlider({
+local Pasek_speeda = Zakladka_misc:CreateSlider({
    Name = "WalkSpeed Slider",
    Range = {1, 350},
    Increment = 1,
@@ -87,7 +88,7 @@ local Pasek_speeda = MainTab:CreateSlider({
    end,
 })
 
-local Pasek_skoku = MainTab:CreateSlider({
+local Pasek_skoku = Zakladka_misc:CreateSlider({
    Name = "JumpPower Slider",
    Range = {1, 350},
    Increment = 1,
@@ -126,8 +127,7 @@ local tp_button3 = Zakladka_teleportow:CreateButton({
 })
 
 local Zakladka_misc = Window:CreateTab("🎲 Misc", nil) -- Title, Image
-
-
+local Sekcja_misc = Zakladka_misc:CreateSection("Różne") -- zakładka misc w home
 
 --[[ Dodatkowe funkcje do rozwijania w przyszłości
 
