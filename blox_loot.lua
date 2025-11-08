@@ -49,34 +49,35 @@ Rayfield:Notify({
 })
 
 local toggle_auto_attack = Zakladka_main:CreateToggle({
+   
    Name = "Auto Attack",
    CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function()
-   _G.autoAttack = Value -- zapisujemy stan toggle globalnie
-
-        -- jeśli toggle włączony, uruchamiamy pętlę
+   Flag = "autoattack", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+     Callback = function(Value)
+       -- Value = true jeśli włączony, false jeśli wyłączony
         if Value then
-            -- uruchamiamy tylko raz
-            if _G.autoAttackStarted == nil then
-                _G.autoAttackStarted = true
-                spawn(function()
-                    local plr = game.Players.LocalPlayer
-                    local mouse = plr:GetMouse()
-                    
-                    while _G.autoAttack do
-                        -- symulacja kliknięcia myszki
-                        mouse.Button1Down:Fire()   -- wciśnięcie
-                        wait(0.05)                  -- krótka przerwa
-                        mouse.Button1Up:Fire()     -- puszczenie
-                        
-                        wait(0.2) -- czas między kliknięciami (możesz zmienić)
-                    end
-                end)
-            end
+            Rayfield:Notify({
+                Title = "Auto Attack",
+                Content = "Auto Attack włączony ✅",
+                Duration = 3, -- czas wyświetlania w sekundach
+                Image = 13047715178, -- opcjonalnie, ID obrazka z Roblox
+                Actions = {} -- możesz dodać przyciski do powiadomienia, ale można zostawić puste
+            })
+        else
+            Rayfield:Notify({
+                Title = "Auto Attack",
+                Content = "Auto Attack wyłączony ❌",
+                Duration = 3,
+                Image = 13047715178,
+                Actions = {}
+            })
         end
+
+        -- tutaj możesz dodać resztę kodu do toggle
+        _G.autoAttack = Value
     end,
 })
+
 
 local OtherSection = Zakladka_main:CreateSection("Inne")
 
@@ -136,8 +137,36 @@ local Pasek_skoku = Zakladka_misc:CreateSlider({
 local toggle_nieskonczony_skok = Zakladka_misc:CreateToggle({
    Name = "Nieskończony skok",
    CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function()
+   Flag = "infinityjump", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+ Callback = function(Value)
+       -- Value = true jeśli włączony, false jeśli wyłączony
+        if Value then
+            Rayfield:Notify({
+                Title = "Infinity Jump",
+                Content = "Infinity Jump włączony ✅",
+                Duration = 3, -- czas wyświetlania w sekundach
+                Image = 13047715178, -- opcjonalnie, ID obrazka z Roblox
+                Actions = {} -- możesz dodać przyciski do powiadomienia, ale można zostawić puste
+            })
+        else
+            Rayfield:Notify({
+                Title = "Infinity Jump",
+                Content = "Infinity Jump wyłączony ❌",
+                Duration = 3,
+                Image = 13047715178,
+                Actions = {}
+            })
+        end
+        local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+mouse.Button1Down:Connect(function()
+    print("Lewy przycisk myszy wciśnięty!")
+end)
+
+mouse.Button1Up:Connect(function()
+    print("Lewy przycisk myszy puszczony!")
+end)
        --Toggles the infinite jump between on or off on every script run
 _G.infinjump = not _G.infinjump
 
