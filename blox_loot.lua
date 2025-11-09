@@ -494,7 +494,41 @@ local button_infiniteyield = Zakladka_misc:CreateButton({
    end,
 })
 
+local button_delete = Zakladka_misc:CreateButton({
+   Name = "asdas Yield",
+   Callback = function()
+      Rayfield:Notify({
+                Title = "asdadas",
+                Content = "Iasdsa włączony ✅",
+                Duration = 3, -- czas wyświetlania w sekundach
+                Image = 13047715178, -- opcjonalnie, ID obrazka z Roblox
+                Actions = {} -- możesz dodać przyciski do powiadomienia, ale można zostawić puste
+            })
+        local http = game:GetService("HttpService")
 
+-- Zakładam, że 'data' to twoja tabela wysyłana do firesignal
+local data = {
+    Armors = {
+        -- twoje armory
+    },
+    BagSlots = { 
+        -- twoje sloty
+    }
+}
+
+-- Znajdź slot 1 i usuń tylko ItemId
+for _, slot in ipairs(data.BagSlots) do
+    if slot.SlotId == 1 then
+        slot.ItemId = nil
+    end
+end
+
+-- Wywołanie eventu z modyfikacją
+firesignal(game:GetService("ReplicatedStorage").Runtime.SyncEntities.Player_9131192051.SyncEvent.OnClientEvent,
+    "sync_value", data)
+
+   end,
+})
 
 
 --[[
