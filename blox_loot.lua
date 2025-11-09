@@ -34,7 +34,7 @@ local Sekcja_main = Zakladka_main:CreateSection("Main") -- zakładka main w home
 
 
 Rayfield:Notify({
-   Title = "Loaded Blox Loot 1.02",
+   Title = "Loaded Blox Loot 1.3",
    Content = "By Sn00Ze",
    Duration = 5,
    Image = 13047715178,
@@ -594,3 +594,4 @@ local Input = Zakladka_main:CreateInput({
 
 
 --]]
+
